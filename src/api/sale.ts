@@ -19,7 +19,7 @@ export const useSaleList = () => {
 
   if (
     !isLoading &&
-    (!data || dayjs().diff(dayjs(data?.updated), "minute") >= 20)
+    (!data || dayjs().diff(dayjs(data?.updated), "minute") > 10)
   ) {
     fetch("https://so2-api.mutoys.com/json/sale/all.json", {
       cache: "force-cache",
