@@ -7,7 +7,7 @@ import { SalesTable } from "./SalesTable";
 export const SalesWatcher = () => {
   const { data: sales } = useSaleList();
 
-  const { itemIDs, setItemIDs } = useItemIDs();
+  const { itemIDs, setItemIDs, isLoading } = useItemIDs();
 
   const selectedSales = useMemo(
     () =>
@@ -19,10 +19,12 @@ export const SalesWatcher = () => {
 
   return (
     <div className="space-y-4">
-      <ItemSelecter
-        defaultItemIDs={itemIDs}
-        onChange={(itemIDs: number[]) => setItemIDs(itemIDs)}
-      />
+      {!isLoading && (
+        <ItemSelecter
+          defaultItemIDs={itemIDs}
+          onChange={(itemIDs: number[]) => setItemIDs(itemIDs)}
+        />
+      )}
 
       <SalesTable sales={selectedSales} />
     </div>

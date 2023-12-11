@@ -10,10 +10,13 @@ export const ItemSelecter = (props: {
 
   const selectOption = useMemo(
     () =>
-      Object.entries(items ?? {}).map(([_, item]) => ({
-        value: item.item_id,
-        label: item.name,
-      })),
+      Object.entries(items ?? {})
+        .map(([_, item]) => item)
+        .sort((item1, item2) => item1.sort - item2.sort)
+        .map((item) => ({
+          value: item.item_id,
+          label: item.name,
+        })),
     [items],
   );
 

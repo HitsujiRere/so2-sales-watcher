@@ -1,9 +1,6 @@
-import useSWR, { Fetcher } from "swr";
-import { ItemList, itemListSchema } from "@/schema/item";
+import useSWR from "swr";
+import { itemListSchema } from "@/schema/item";
+import { createApiFetcher } from "./createFetcher";
 
-const fetcher: Fetcher<ItemList, string> = (url) =>
-  fetch(url)
-    .then((res) => res.json())
-    .then((res) => itemListSchema.parse(res));
-
-export const useItemList = () => useSWR("item.json", fetcher);
+export const useItemList = () =>
+  useSWR("item.json", createApiFetcher(itemListSchema));
