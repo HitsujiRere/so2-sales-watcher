@@ -1,4 +1,4 @@
-import { useItemList } from "@/api/item";
+import { useItemList } from "@/api/useItemList";
 import { SaleList } from "@/schema/sale";
 
 export const SalesTable = (props: { sales: SaleList }) => {

@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { useItemIDs } from "@/hooks/useItemIDs";
-import { useSaleList } from "@/api/sale";
+import { useSaleList } from "@/api/useSaleList";
 import { ItemSelecter } from "./ItemSelecter";
 import { SalesTable } from "./SalesTable";
 

@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import Select from "react-select";
-import { useItemList } from "@/api/item";
+import { useItemList } from "@/api/useItemList";
 
 export const ItemSelecter = (props: {
   defaultItemIDs: number[];
